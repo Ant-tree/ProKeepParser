@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.obfuscation'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes(
+                'Manifest-Version': '1.0',
+                'Main-Class': 'com.obfuscation.ProKeepParser'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}

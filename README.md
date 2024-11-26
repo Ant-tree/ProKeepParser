@@ -4,6 +4,8 @@
 
 This tool extracts class information from APK file and compare it with ProGuard configuration to filter out the classes, methods or fields that must be excluded from obfuscation process. 
 
+This project follows the **GPL-2.0** license since the [proguard](https://github.com/Guardsquare/proguard)’s source code has been used.
+
 ## Features
 
 - Extracts class information from Android APK files
